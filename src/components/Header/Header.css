@@ -1,0 +1,13 @@
+.navLink{
+  font-size: 1.2rem;
+  transition: background 0.5s;
+  border-radius: 6px;
+  color:rgb(78, 77, 77)
+}
+
+.navLink:hover{
+  background: rgb(203, 231, 255);
+  text-decoration:solid;
+  font-weight: 500;
+
+}
