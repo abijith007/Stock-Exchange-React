@@ -1,17 +1,25 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import 'bootstrap/dist/css/bootstrap.min.css'; 
-import App from './components/App';
-import reportWebVitals from './reportWebVitals';
+import React from "react";
+import ReactDOM from "react-dom";
+import "./index.css";
+import App from "./components/App";
+import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
-import { store } from './store';
+import { store } from "./store";
+import axios from "axios";
+
+axios.interceptors.request.use((request) => {
+  let token = localStorage.getItem("jwt");
+  if (token) {
+    request.headers["Authorization"] = "Bearer " + token;
+  }
+  return request;
+});
 
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById("root")
 );
 
 // If you want to start measuring performance in your app, pass a function

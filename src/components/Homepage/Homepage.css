@@ -1,0 +1,55 @@
+.homepage-wrapper{
+  display: flex;
+
+}
+.hero-image{
+  background-image: url("https://i.ytimg.com/vi/UcE3TkroWC4/maxresdefault.jpg");
+  background-color: #cccccc;
+  height: 94.1vh;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  opacity: 1;
+  position: relative;
+  width: 100%;
+  z-index: 0;
+}
+
+.hero-text {
+  text-align: left;
+  position: absolute;
+  top: 50%;
+  left: 5%;
+  width: 40%;
+  color: white;
+  font-size: 3rem;
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  min-width: 250px;
+  font-weight: 600;
+  font-style: italic;
+  
+}
+
+.black-overlay{
+  background-color: rgba(0, 0, 0, 0.664);
+  height:92.5vh;
+  display: flex;
+  flex-direction: row;
+  flex-flow: row wrap;
+}
+
+.login-placeholder-mobile{
+  display: none;
+}
+
+@media screen and (max-width:580px) {
+  .login-placeholder{
+    display:none
+  }
+
+  .login-placeholder-mobile{
+    display: block;
+  }
+}
+
+
