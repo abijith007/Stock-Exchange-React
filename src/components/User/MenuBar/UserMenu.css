@@ -1,0 +1,27 @@
+.menu-bg{
+  background-color: rgb(109, 38, 38);
+  font-size: large;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.item {
+  text-decoration: none;
+  color: aliceblue;
+}
+
+.item:hover{
+  font-weight: 700;
+  color: rgb(44, 128, 255);
+}
+
+.col-sm{
+  text-align: center;
+  padding: 0.5rem;
+}
+
+
+.active{
+  background-color: rgb(255, 143, 79);
+  color: aliceblue;
+}

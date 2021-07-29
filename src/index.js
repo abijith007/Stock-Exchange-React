@@ -5,6 +5,15 @@ import App from "./components/App";
 import reportWebVitals from "./reportWebVitals";
 import { Provider } from "react-redux";
 import { store } from "./store";
+import axios from "axios";
+
+axios.interceptors.request.use((request) => {
+  let token = localStorage.getItem("jwt");
+  if (token) {
+    request.headers["Authorization"] = "Bearer " + token;
+  }
+  return request;
+});
 
 ReactDOM.render(
   <Provider store={store}>

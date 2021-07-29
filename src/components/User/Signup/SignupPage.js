@@ -1,16 +1,11 @@
+import axios from "axios";
 import React, { Component } from "react";
-
-import Stepper from "react-stepper-horizontal";
 import SignupForm from "./SignupForm";
-import OtpForm from "./OtpForm";
-import StepWizard from "react-step-wizard";
-
 class SignupPage extends Component {
   state = {
     formValidated: null,
-    currentStep: 1,
-    isUsernameUnique: null,
     currentStep: 0,
+    isUsernameUnique: null,
   };
 
   changeCurrentStep = (step) => {
@@ -21,14 +16,9 @@ class SignupPage extends Component {
 
   onFormSubmit = (data) => {
     console.log(data);
-    return true;
-  };
-
-  onOtpSubmit = (value) => {
-    console.log();
-    if (value.length === 6) {
-      console.log(`OTP Entered ${value}`);
-    }
+    axios
+      .post("http://localhost:4000/api/auth/signup", data)
+      .then((res) => window.location.replace("/"));
   };
 
   render() {
@@ -36,32 +26,13 @@ class SignupPage extends Component {
       <div className="container">
         <div style={{ marginTop: "5rem" }}></div>
         <br />
-        <StepWizard
-          nav={
-            <Stepper
-              completeColor={"green"}
-              titleTop={10}
-              steps={[
-                { title: "User Information" },
-                { title: "OTP Validation" },
-                { title: "Succefully Registered" },
-              ]}
-              activeStep={this.state.currentStep}
-            />
-          }
-          initialStep={0}
-        >
-          <SignupForm
-            {...this.state}
-            onFormSubmit={this.onFormSubmit}
-            saveInput={this.saveInput}
-            changeCurrentStep={this.changeCurrentStep}
-          />
-          <OtpForm
-            onOtpSubmit={this.onOtpSubmit}
-            changeCurrentStep={this.changeCurrentStep}
-          />
-        </StepWizard>
+
+        <SignupForm
+          {...this.state}
+          onFormSubmit={this.onFormSubmit}
+          saveInput={this.saveInput}
+          changeCurrentStep={this.changeCurrentStep}
+        />
       </div>
     );
   }
